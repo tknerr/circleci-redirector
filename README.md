@@ -18,17 +18,17 @@ It currently runs on [OpenShift](https://www.openshift.com/pricing/plan-comparis
 
 ## URL Patterns
 
-Get redirected to the latest build details:
+Get redirected to the latest build on a specific branch:
 
- * `GET /api/v1/<user>/<project>/tree/<branch>/latest`
+ * `GET /api/v1/project/<user>/<project>/tree/<branch>/latest`
 
 Get redirected to the list of build artifacts for the latest build:
 
- * `GET /api/v1/<user>/<project>/tree/<branch>/latest/artifacts`
+ * `GET /api/v1/project/<user>/<project>/tree/<branch>/latest/artifacts`
 
 Get redirected to the download link of a specific build artifact:
 
- * `GET /api/v1/<user>/<project>/tree/<branch>/latest/artifacts/<artifact>`
+ * `GET /api/v1/project/<user>/<project>/tree/<branch>/latest/artifacts/<artifact>`
 
 ## Request Parameters / Authentication Tokens
 

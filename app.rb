@@ -12,12 +12,12 @@ get '/' do
   markdown :index
 end
 
-get '/api/v1/:user/:project/tree/:branch/latest' do |user, project, branch|
+get '/api/v1/project/:user/:project/tree/:branch/latest' do |user, project, branch|
   latest = latest_build(user, project, branch)
   redirect_to build_details(user, project, latest['build_num'])
 end
 
-get '/api/v1/:user/:project/tree/:branch/latest/artifacts' do |user, project, branch|
+get '/api/v1/project/:user/:project/tree/:branch/latest/artifacts' do |user, project, branch|
   latest = latest_build(user, project, branch)
   if (latest['has_artifacts'] == true)
     redirect_to build_artifacts(user, project, latest['build_num'])
@@ -26,7 +26,7 @@ get '/api/v1/:user/:project/tree/:branch/latest/artifacts' do |user, project, br
   end
 end
 
-get '/api/v1/:user/:project/tree/:branch/latest/artifacts/:artifact' do |user, project, branch, artifact|
+get '/api/v1/project/:user/:project/tree/:branch/latest/artifacts/:artifact' do |user, project, branch, artifact|
   latest = latest_build(user, project, branch)
   if (latest['has_artifacts'] == true)
     found_artifact = find_artifact(user, project, latest['build_num'], artifact)
