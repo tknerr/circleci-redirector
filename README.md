@@ -6,18 +6,21 @@ Provides deterministic / bookmarkable URLs which the [CircleCI REST API](https:/
  * link to latest build on a specific branch
  * deterministic URLs for build artifacts
 
+The URLs below respond with a HTTP 302 redirect to a specific build on circleci, so whenever you use this API ensure that your HTTP client follows redirects.
+
 # URL Patterns
 
-Accessing the latest build:
+Get redirected to the latest build details:
 
  * `GET /<user>/<repo>/tree/<branch>/latest`
 
-Accessing build artifacts of the latest build:
+Get redirected to the list of build artifacts for the latest build:
+
+ * `GET /<user>/<repo>/tree/<branch>/latest/artifacts`
+
+Get redirected to the download link of a specific build artifact:
 
  * `GET /<user>/<repo>/tree/<branch>/latest/artifacts/<artifact>`
-
-Note that the above URLs will respond with a HTTP 302 redirect with the correct URL on circleci, so whenever you use this API ensure that your HTTP client follows redirects.
-
 
 # Development
 

@@ -1,6 +1,7 @@
-Basic usage:
+Basic Usage
 
- * `GET /<user>/<repo>/tree/<branch>/latest`
- * `GET /<user>/<repo>/tree/<branch>/latest/artifacts/<artifact>`
+ * redirect to build details: `GET /<user>/<repo>/tree/<branch>/latest`
+ * redirect to list of artifacts: `GET /<user>/<repo>/tree/<branch>/latest/artifacts`
+ * redirect to build artifact download: `GET /<user>/<repo>/tree/<branch>/latest/artifacts/<artifact>`
 
-See [tknerr/circleci-redirector](https://github.com/tknerr/circleci-redirector) for more details
+For more details see [tknerr/circleci-redirector](https://github.com/tknerr/circleci-redirector)
