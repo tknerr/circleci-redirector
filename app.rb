@@ -40,6 +40,10 @@ get '/api/v1/:user/:project/tree/:branch/latest/artifacts/:artifact' do |user, p
   end
 end
 
+get '/api/v1/*' do |path|
+  redirect_to "https://circleci.com/api/v1/#{path}"
+end
+
 def not_found(message)
   [404, {'Content-Type' => 'text/plain'}, message]
 end
