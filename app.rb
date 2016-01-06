@@ -2,6 +2,7 @@ require 'sinatra'
 require 'open-uri'
 require 'json'
 require 'redcarpet'
+require 'uri'
 require 'sinatra/reloader' if development?
 
 get '/todo' do
@@ -53,10 +54,11 @@ helpers do
   end
 
   def redirect_to(url)
-    unless request.query_string.empty?
-      url << '?' << request.query_string
-    end
-    redirect to(url)
+    redirect to(preserve_query(url))
+  end
+
+  def fetch(url)
+    open(preserve_query(url)).read
   end
 
   def latest_build(user, project, branch)
@@ -88,7 +90,12 @@ helpers do
     circleci_api("project/#{user}/#{project}/#{build_num}/tests")
   end
 
-  def fetch(url)
-    open(url).read
+  def preserve_query(url)
+    uri = URI(url)
+    current_params = URI.decode_www_form(uri.query || '')
+    original_params = URI.decode_www_form(request.query_string || '')
+    merged_params = URI.encode_www_form(current_params + original_params)
+    uri.query = merged_params unless merged_params.empty?
+    uri.to_s
   end
 end
