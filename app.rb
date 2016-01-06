@@ -1,27 +1,16 @@
 require 'sinatra'
 require 'open-uri'
 require 'json'
+require 'redcarpet'
 require 'sinatra/reloader' if development?
 
 get '/todo' do
-  <<-EOF
-    TODO:
-      * add a README
-      * show readme or routes on /
-      * forward accept headers and pass thru content type
-      * access by build_num not only latest
-      * list branches (from github?)
-      * list builds per branch
-      * add new-relic or other ping service to prevent idling
-      * add tests
-      * auto-deploy to openshift
-      * use a custom domain name
-      * use 302 redirect for all /* GET requests so it behaves more like a drop-in proxy
-      * also forward auth tokens and allow https only
-      * add donate button
-  EOF
+  markdown :todo
 end
 
+get '/' do
+  markdown :index
+end
 
 get '/:user/:project/tree/:branch/latest' do |user, project, branch|
   latest = latest_build(user, project, branch)
