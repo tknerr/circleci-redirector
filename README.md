@@ -8,21 +8,21 @@ Provides deterministic / bookmarkable URLs which the [CircleCI REST API](https:/
 
 The URLs below respond with a HTTP 302 redirect to a specific build on circleci, so whenever you use this API ensure that your HTTP client follows redirects.
 
-# URL Patterns
+## URL Patterns
 
 Get redirected to the latest build details:
 
- * `GET /api/v1/<user>/<repo>/tree/<branch>/latest`
+ * `GET /api/v1/<user>/<project>/tree/<branch>/latest`
 
 Get redirected to the list of build artifacts for the latest build:
 
- * `GET /api/v1/<user>/<repo>/tree/<branch>/latest/artifacts`
+ * `GET /api/v1/<user>/<project>/tree/<branch>/latest/artifacts`
 
 Get redirected to the download link of a specific build artifact:
 
- * `GET /api/v1/<user>/<repo>/tree/<branch>/latest/artifacts/<artifact>`
+ * `GET /api/v1/<user>/<project>/tree/<branch>/latest/artifacts/<artifact>`
 
-# Development
+## Development
 
 Install the gem dependencies:
 
@@ -34,10 +34,10 @@ Bring up the sinatra webapp in development mode (with automatic reloading):
 
 Access the webapp in your browser, hack and reload:
 
- * http://localhost:9292/
+ * [http://localhost:9292](http://localhost:9292)
 
 
-# Contributing
+## Contributing
 
  1. Fork it
  1. Create your feature branch (git checkout -b my-new-feature)
