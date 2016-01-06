@@ -1,0 +1,10 @@
+script: true
+deploy:
+  provider: openshift
+  user: mail@tknerr.de
+  password:
+    secure: QEVKmKAAKoY5zUDPzGim69K2X+x3pDVpI6zK41bhZk3mdrkychFLbj73ZPF2DytTW/waOjMxESx+LGz7AUet1BpC+hKUHahMSwG7HVPlUVml1xV9bK5ZIPyoiNqLfTyJ9NuFYdSDUl/0pOeHJPPpMwvcCyj/dHmIlDwP6+xE7QRStsT1+0JuwQwmlAjoU/eq+0q6G0J1cQU4CPv+dDyV4L9/c81bk3q6xMKTDdTmcwdbeem+oyITI8y85v1WMpNYjMIMeDOI4iX/54tGoEqc/W8NokngtKbOm+gKJD5PNoXVqyMQ6WmiFZDa6KfH345aCG6IE7OK2kr5P48QqAtmWs0VvBwv2OZE1tqqThU0ECnN7ybba/Kn6VRGS0cEYhqVwyUvWAahCYAvUvoq79wGI3a+vOWYmSWgYLZGcWnTbZ/iftUOIxC30QvyMUk7dky3+NmVQ02QQTEKOMj3TMU+jlRvlvfB2xrFaJM4LLt4mcUQ63y0oEgUN0Ym+tAY5GvOxwdw0L6lsvj2ZVQ3/QDg4nUiSj6y3RR4m+fVjdStoPYvonL9lq5BIxc2nacgW3rsmVtie7xKgr0PgAYUhZtbI48/5kqUmEMAuRHxm3A8YIX+NqUVclTdUBBvOao8eJQZJNGEfqz//hRIPj5EpUrRxanNPs1B3ccG0wQBeOwkkRI=
+  app: circleciredirector
+  domain: tkn
+  on:
+    repo: tknerr/circleci-redirector
