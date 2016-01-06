@@ -12,15 +12,15 @@ The URLs below respond with a HTTP 302 redirect to a specific build on circleci,
 
 Get redirected to the latest build details:
 
- * `GET /<user>/<repo>/tree/<branch>/latest`
+ * `GET /api/v1/<user>/<repo>/tree/<branch>/latest`
 
 Get redirected to the list of build artifacts for the latest build:
 
- * `GET /<user>/<repo>/tree/<branch>/latest/artifacts`
+ * `GET /api/v1/<user>/<repo>/tree/<branch>/latest/artifacts`
 
 Get redirected to the download link of a specific build artifact:
 
- * `GET /<user>/<repo>/tree/<branch>/latest/artifacts/<artifact>`
+ * `GET /api/v1/<user>/<repo>/tree/<branch>/latest/artifacts/<artifact>`
 
 # Development
 
