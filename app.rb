@@ -14,13 +14,13 @@ end
 
 get '/api/v1/:user/:project/tree/:branch/latest' do |user, project, branch|
   latest = latest_build(user, project, branch)
-  redirect to(build_details(user, project, latest['build_num']))
+  redirect_to build_details(user, project, latest['build_num'])
 end
 
 get '/api/v1/:user/:project/tree/:branch/latest/artifacts' do |user, project, branch|
   latest = latest_build(user, project, branch)
   if (latest['has_artifacts'] == true)
-    redirect to(build_artifacts(user, project, latest['build_num']))
+    redirect_to build_artifacts(user, project, latest['build_num'])
   else
     not_found 'no artifacts for this build'
   end
@@ -31,7 +31,7 @@ get '/api/v1/:user/:project/tree/:branch/latest/artifacts/:artifact' do |user, p
   if (latest['has_artifacts'] == true)
     found_artifact = find_artifact(user, project, latest['build_num'], artifact)
     if found_artifact
-      redirect to(found_artifact['url'])
+      redirect_to found_artifact['url']
     else
       not_found 'no such artifact'
     end
@@ -42,6 +42,13 @@ end
 
 def not_found(message)
   [404, {'Content-Type' => 'text/plain'}, message]
+end
+
+def redirect_to(url)
+  unless request.query_string.empty?
+    url << '?' << request.query_string
+  end
+  redirect to(url)
 end
 
 def latest_build(user, project, branch)
