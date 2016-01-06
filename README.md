@@ -22,7 +22,11 @@ Get redirected to the latest build on a specific branch:
 
  * `GET /api/v1/project/<user>/<project>/tree/<branch>/latest`
 
-Get redirected to the list of build artifacts for the latest build:
+Get redirected to the test results for the latest build on a specific branch:
+
+ * `GET /api/v1/project/<user>/<project>/tree/<branch>/latest/tests`
+
+Get redirected to the list of build artifacts for the latest build on a specific branch:
 
  * `GET /api/v1/project/<user>/<project>/tree/<branch>/latest/artifacts`
 

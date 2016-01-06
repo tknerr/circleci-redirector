@@ -19,11 +19,12 @@ end
 
 get '/api/v1/project/:user/:project/tree/:branch/latest/artifacts' do |user, project, branch|
   latest = latest_build(user, project, branch)
-  if (latest['has_artifacts'] == true)
-    redirect_to build_artifacts(user, project, latest['build_num'])
-  else
-    not_found 'no artifacts for this build'
-  end
+  redirect_to build_artifacts(user, project, latest['build_num'])
+end
+
+get '/api/v1/project/:user/:project/tree/:branch/latest/tests' do |user, project, branch|
+  latest = latest_build(user, project, branch)
+  redirect_to build_testresults(user, project, latest['build_num'])
 end
 
 get '/api/v1/project/:user/:project/tree/:branch/latest/artifacts/:artifact' do |user, project, branch, artifact|
@@ -81,6 +82,10 @@ helpers do
 
   def build_artifacts(user, project, build_num)
     circleci_api("project/#{user}/#{project}/#{build_num}/artifacts")
+  end
+
+  def build_testresults(user, project, build_num)
+    circleci_api("project/#{user}/#{project}/#{build_num}/tests")
   end
 
   def fetch(url)
