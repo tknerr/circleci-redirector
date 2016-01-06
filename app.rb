@@ -41,41 +41,49 @@ get '/api/v1/:user/:project/tree/:branch/latest/artifacts/:artifact' do |user, p
 end
 
 get '/api/v1/*' do |path|
-  redirect_to "https://circleci.com/api/v1/#{path}"
+  redirect_to circleci_api(path)
 end
 
-def not_found(message)
-  [404, {'Content-Type' => 'text/plain'}, message]
-end
 
-def redirect_to(url)
-  unless request.query_string.empty?
-    url << '?' << request.query_string
+helpers do
+
+  def not_found(message)
+    [404, {'Content-Type' => 'text/plain'}, message]
   end
-  redirect to(url)
-end
 
-def latest_build(user, project, branch)
-  JSON.parse(fetch(build_summaries(user, project, branch, 1))).first
-end
+  def redirect_to(url)
+    unless request.query_string.empty?
+      url << '?' << request.query_string
+    end
+    redirect to(url)
+  end
 
-def find_artifact(user, project, build_num, artifact_name)
-  artifacts = JSON.parse(fetch(build_artifacts(user, project, build_num)))
-  artifacts.find { |it| it['pretty_path'].end_with? artifact_name }
-end
+  def latest_build(user, project, branch)
+    JSON.parse(fetch(build_summaries(user, project, branch, 1))).first
+  end
 
-def build_summaries(user, project, branch, limit = 30)
-  "https://circleci.com/api/v1/project/#{user}/#{project}/tree/#{branch}?limit=#{limit}"
-end
+  def find_artifact(user, project, build_num, artifact_name)
+    artifacts = JSON.parse(fetch(build_artifacts(user, project, build_num)))
+    artifacts.find { |it| it['pretty_path'].end_with? artifact_name }
+  end
 
-def build_details(user, project, build_num)
-  "https://circleci.com/api/v1/project/#{user}/#{project}/#{build_num}"
-end
+  def circleci_api(path)
+    "https://circleci.com/api/v1/#{path}"
+  end
 
-def build_artifacts(user, project, build_num)
-  "https://circleci.com/api/v1/project/#{user}/#{project}/#{build_num}/artifacts"
-end
+  def build_summaries(user, project, branch, limit = 30)
+    circleci_api("project/#{user}/#{project}/tree/#{branch}?limit=#{limit}")
+  end
 
-def fetch(url)
-  open(url).read
+  def build_details(user, project, build_num)
+    circleci_api("project/#{user}/#{project}/#{build_num}")
+  end
+
+  def build_artifacts(user, project, build_num)
+    circleci_api("project/#{user}/#{project}/#{build_num}/artifacts")
+  end
+
+  def fetch(url)
+    open(url).read
+  end
 end
