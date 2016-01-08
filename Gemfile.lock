@@ -2,14 +2,30 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.6.7)
+    diff-lcs (1.2.5)
     multi_json (1.11.2)
     newrelic_rpm (3.14.1.311)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rack-ssl (1.4.1)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     redcarpet (3.3.4)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.1)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -28,7 +44,9 @@ PLATFORMS
 
 DEPENDENCIES
   newrelic_rpm
+  rack-test
   redcarpet
+  rspec
   sinatra
   sinatra-contrib
 
