@@ -3,9 +3,7 @@ env:
   # the encrypted OPENSHIFT_NEWRELIC_LICENSE_KEY
   secure: WC0MiiicDNJgSFgZktN0u0PpnH9nsJsRqZ4a/srazTdB0plftoX9qIOeJpTwFzAkVZsEccv566nejH9GeOiG1c+tADqPslbaHQXXdQg+Q2J8f3RKdvYgfIcoUOIJNRj2doWWZ56EkWJ8UYhJuIzm2jemSPZe8QaXz4YlmI0Q1TIXZbHGjI1W0aH9woQZy75E6/tEdoVIRThh3chwGwycRutxGpdGD1Ma90Wau4eQoqd6SP/AkIk8CSDuivOdZzfJhBHUYnRB5K91KQdIH9jILPR6FEsU+EhxPssf8vJCQFq8l0SUw0mpAVXbsumpJ9zkywn8bharcEgxbaR27t8IB/lsHDYftsff0nEi/oKh9pQQRgkcuggdfZxZTrfWecAgfBFCKIiPzs17dsEzDaO1H6phsuq7hdgaHcWSXbhjdju5ZhC9jhQWSqJd4bH32gQ2jUMuYU1dUEnOzzKyjRWppvB9xbJpFPWl4TBVqO68bZ4UyQ1qz5DztPGHEHkFIECEGgEc4gQdwxM+OQuNMESN9wq6hIbzYhU7EQkLT8z88pXi3RukxbMeKUrDB0N4/cIdhzXUoR0yW+vTi28sBD7aa5R3nHHUC1WFPKrGZdvCwOEsuQ3MA8rvo/cTNjiERwBcSswp4c4r/Q8ALfOyn+/jhx9PsMDFyil5+zOZG8LJu8s=
 before_deploy:
-  - whoami
-  - pwd
-  - uname -a
+  - rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=$OPENSHIFT_NEWRELIC_LICENSE_KEY -a staging
 deploy:
   provider: openshift
   user: mail@tknerr.de
