@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo -n bar > ~/.env/user_vars/FOO
+echo -n $OPENSHIFT_NEWRELIC_LICENSE_KEY > ~/.env/user_vars/OPENSHIFT_NEWRELIC_LICENSE_KEY

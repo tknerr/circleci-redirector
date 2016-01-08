@@ -5,9 +5,9 @@ env:
   # the encrypted OPENSHIFT_PASSWORD
   secure: ptIu5vdQ1AGreAPNt8d7KE2JPpp+tQ+Zi5zuGXlV+SGWu4gpPSDmvl8zo36R/idGr2fHP8zTph0quFzbM5Hmvw8xGIvquWvza3Q1jCATGedCNEZnCfbtNJk3lpw3J+5t+dkAHR/uIRuKquq8uS4K828uv8/mJoJFLCuwCz+gKXCe+Ju9Qqi/+qCmTlgiex7QQGC+TYbQ2bZOm2fStZgp/GyPk8rLhWfh/d1+ScP57n8c4ZPN5lRm2L6bGTp+DyIOKaefXbaHiHqYlRnF8SyuWTslInvMPbzaJGDJz+0JAQc1wZDTvWtmKiYzqwTgPHGaFnMoJARhdeXVt7VrnwEK2BcpC7e6t71Ix35+3Ct1Pe0OGju8RC4zu5h/Y8E98XGIgjumdnUBumgbjfeN2QAGG3Ox4Drj8b+iHylLZpZetISRHGD8o7UobMsJzfKPvAQx1oazXuaj+W16f4VSXAI/M9dqyz3nx63cGC/JZa3Uknct17uPdcRc3tAZpromSJhxuEntEoQ6/0cYHz8CVSNJ4AUxCSGslmBVc2qFWBkQ/yNfG9o9HQ7sBiV5QYPw3HFqB5lOLeh0PVE8l7tT6ojSfi2nFA+4cytiPFnZwrZs8PGFbCQdRFfYmQ3VlFshAxLt1gKFVQLKVCClhX0vtHXXiINKIoV9bja+9L5zcA+MWcY=
 before_deploy:
-  - gem install rhc
-  - rhc setup --clean --create-token --server openshift.redhat.com -l mail@tknerr.de -p $OPENSHIFT_PASSWORD
-  - rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=$OPENSHIFT_NEWRELIC_LICENSE_KEY -a staging
+  #- gem install rhc
+  #- rhc setup --clean --create-token --server openshift.redhat.com -l mail@tknerr.de -p $OPENSHIFT_PASSWORD
+  #- rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=$OPENSHIFT_NEWRELIC_LICENSE_KEY -a staging
 deploy:
   provider: openshift
   user: mail@tknerr.de
