@@ -1,4 +1,4 @@
-script: true
+script: rake spec
 env:
   global:
     # the encrypted NEWRELIC_LICENSE_KEY
