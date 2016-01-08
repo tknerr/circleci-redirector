@@ -13,5 +13,3 @@ deploy:
   domain: tkn
   on:
     repo: tknerr/circleci-redirector
-after_deploy:
-  - rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=$OPENSHIFT_NEWRELIC_LICENSE_KEY --app staging
