@@ -1,6 +1,8 @@
 
 # CircleCI Redirector
 
+[![Build Status](https://travis-ci.org/tknerr/circleci-redirector.svg?branch=master)](https://travis-ci.org/tknerr/circleci-redirector)
+
 Extends the [CircleCI REST API](https://circleci.com/docs/api) with deterministic / bookmarkable URLs for:
 
  * latest build on a specific branch
