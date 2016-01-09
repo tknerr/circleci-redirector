@@ -5,15 +5,11 @@ env:
     - secure: WC0MiiicDNJgSFgZktN0u0PpnH9nsJsRqZ4a/srazTdB0plftoX9qIOeJpTwFzAkVZsEccv566nejH9GeOiG1c+tADqPslbaHQXXdQg+Q2J8f3RKdvYgfIcoUOIJNRj2doWWZ56EkWJ8UYhJuIzm2jemSPZe8QaXz4YlmI0Q1TIXZbHGjI1W0aH9woQZy75E6/tEdoVIRThh3chwGwycRutxGpdGD1Ma90Wau4eQoqd6SP/AkIk8CSDuivOdZzfJhBHUYnRB5K91KQdIH9jILPR6FEsU+EhxPssf8vJCQFq8l0SUw0mpAVXbsumpJ9zkywn8bharcEgxbaR27t8IB/lsHDYftsff0nEi/oKh9pQQRgkcuggdfZxZTrfWecAgfBFCKIiPzs17dsEzDaO1H6phsuq7hdgaHcWSXbhjdju5ZhC9jhQWSqJd4bH32gQ2jUMuYU1dUEnOzzKyjRWppvB9xbJpFPWl4TBVqO68bZ4UyQ1qz5DztPGHEHkFIECEGgEc4gQdwxM+OQuNMESN9wq6hIbzYhU7EQkLT8z88pXi3RukxbMeKUrDB0N4/cIdhzXUoR0yW+vTi28sBD7aa5R3nHHUC1WFPKrGZdvCwOEsuQ3MA8rvo/cTNjiERwBcSswp4c4r/Q8ALfOyn+/jhx9PsMDFyil5+zOZG8LJu8s=
     # the encrypted OPENSHIFT_PASSWORD
     - secure: ptIu5vdQ1AGreAPNt8d7KE2JPpp+tQ+Zi5zuGXlV+SGWu4gpPSDmvl8zo36R/idGr2fHP8zTph0quFzbM5Hmvw8xGIvquWvza3Q1jCATGedCNEZnCfbtNJk3lpw3J+5t+dkAHR/uIRuKquq8uS4K828uv8/mJoJFLCuwCz+gKXCe+Ju9Qqi/+qCmTlgiex7QQGC+TYbQ2bZOm2fStZgp/GyPk8rLhWfh/d1+ScP57n8c4ZPN5lRm2L6bGTp+DyIOKaefXbaHiHqYlRnF8SyuWTslInvMPbzaJGDJz+0JAQc1wZDTvWtmKiYzqwTgPHGaFnMoJARhdeXVt7VrnwEK2BcpC7e6t71Ix35+3Ct1Pe0OGju8RC4zu5h/Y8E98XGIgjumdnUBumgbjfeN2QAGG3Ox4Drj8b+iHylLZpZetISRHGD8o7UobMsJzfKPvAQx1oazXuaj+W16f4VSXAI/M9dqyz3nx63cGC/JZa3Uknct17uPdcRc3tAZpromSJhxuEntEoQ6/0cYHz8CVSNJ4AUxCSGslmBVc2qFWBkQ/yNfG9o9HQ7sBiV5QYPw3HFqB5lOLeh0PVE8l7tT6ojSfi2nFA+4cytiPFnZwrZs8PGFbCQdRFfYmQ3VlFshAxLt1gKFVQLKVCClhX0vtHXXiINKIoV9bja+9L5zcA+MWcY=
-    - XYZ=1234
 before_deploy:
-  - echo "this is $XYZ"
-  - echo "this is \$XYZ"
-  - echo "this is ${XYZ}"
   - gem install rhc
   - echo no | rhc setup --clean --create-token --server openshift.redhat.com -l mail@tknerr.de -p $OPENSHIFT_PASSWORD
-  - rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=\$OPENSHIFT_NEWRELIC_LICENSE_KEY -a staging
-  - rhc
+  - rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=$OPENSHIFT_NEWRELIC_LICENSE_KEY -a staging
+  - rhc logout
 deploy:
   provider: openshift
   user: mail@tknerr.de
