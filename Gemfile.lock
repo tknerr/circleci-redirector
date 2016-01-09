@@ -3,6 +3,7 @@ GEM
   specs:
     backports (3.6.7)
     multi_json (1.11.2)
+    newrelic_rpm (3.14.1.311)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -26,6 +27,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  newrelic_rpm
   redcarpet
   sinatra
   sinatra-contrib

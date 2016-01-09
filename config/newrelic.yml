@@ -1,0 +1,13 @@
+# For full documentation of agent configuration options, please refer to
+# https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
+
+# Environment-specific settings are in this section.
+# RAILS_ENV or RACK_ENV (as appropriate) is used to determine the environment.
+# If your application has other named environments, configure them here.
+development:
+  agent_enabled: false
+
+production:
+  app_name: CircleCI Redirector
+  license_key: <%= ENV['OPENSHIFT_NEWRELIC_LICENSE_KEY'] %>
+  log_level: info
