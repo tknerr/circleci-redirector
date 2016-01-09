@@ -12,6 +12,7 @@ before_deploy:
   - gem install rhc
   - echo no | rhc setup --clean --create-token --server openshift.redhat.com -l mail@tknerr.de -p $OPENSHIFT_PASSWORD
   - rhc env-set OPENSHIFT_NEWRELIC_LICENSE_KEY=\$OPENSHIFT_NEWRELIC_LICENSE_KEY -a staging
+  - rhc logout
 deploy:
   provider: openshift
   user: mail@tknerr.de
