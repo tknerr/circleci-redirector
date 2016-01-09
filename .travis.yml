@@ -13,3 +13,7 @@ deploy:
   domain: tkn
   on:
     repo: tknerr/circleci-redirector
+  run:
+    - echo hello
+    - git status
+    - git remote show origin
