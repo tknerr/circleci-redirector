@@ -5,10 +5,6 @@ require 'redcarpet'
 require 'uri'
 require 'sinatra/reloader' if development?
 
-get '/todo' do
-  markdown :todo
-end
-
 get '/' do
   markdown :index
 end
