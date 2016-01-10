@@ -14,7 +14,7 @@ Note that every request is responded with a HTTP 302 redirect to a specific buil
 
 A public instance of circleci-redirector is running here:
 
- * [https://circleciredirector-tkn.rhcloud.com/](https://circleciredirector-tkn.rhcloud.com/)
+ * [https://circleci-tkn.rhcloud.com/](https://circleci-tkn.rhcloud.com/)
 
 It is being auto-deployed whenever something is committed to `master`. Feel free to use it as-is, or fork this repo and deploy it on your own if you want more control.
 
